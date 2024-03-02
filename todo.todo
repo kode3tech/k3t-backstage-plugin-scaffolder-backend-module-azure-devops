@@ -1,0 +1,16 @@
+migrations :
+  ✘ git-clone-azure-each.ts (git:clone:azure:each)   -> git-clones-azure.ts (git:clones:azure) @cancelled(24-02-29 11:54)
+  ✔ git-clone-azure.ts (git:clone:azure)             -> @done(24-02-29 11:54)
+  ✘ git-commit-azure-each.ts (git:commit:azure:each) -> git-commits-azure.ts (git:commits:azure) @cancelled(24-02-29 11:54)
+  ✔ git-commit-azure.ts (git:commit:azure)           -> @done(24-02-29 22:19)
+  ✘ git.ts (git:checkout:azure, git:push:azure)      -> @cancelled(24-02-29 22:19)
+  ✔ pipeline-create.ts (pipeline:create:azure)       -> pipelines-create.ts (devops:pipelines:create) @done(24-03-01 11:46)
+  ☐ pipeline-runner.ts (pipeline:run:azure)          -> pipelines-runner.ts (devops:pipelines:run)
+  ☐ ? add-confs.ts (azure:add:confs)                   -> add-confs.ts (devops:add:confs)
+  ☐ ? azure-utils.ts (azure:utils)                     -> azure-utils.ts (devops:utils)
+  ☐ branch-policy.ts (azure:branch-policy:create)    -> git-branch-policies.ts (git:branches-policies:azure)
+  ☐ branches.ts (azure:branches:create)              -> git-branches.ts (git:branches:create:azure)
+  ☐ library.ts (azure:library:create)                -> libraries-create.ts (devops:libraries:create)
+  ☐ pipelines.ts (azure:pipeline:create)             ->
+  ☐ publish-sec.ts (publish:azure:safe)              -> publishes.ts (devops:publishes:azure)
+  ☐ rename.ts (resource:azure:rename)                -> rename.ts (devops:resources:rename)
