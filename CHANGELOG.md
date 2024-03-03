@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.5](https://github.com/kode3tech/backstage-proto/compare/v1.2.4...v1.2.5) (2024-03-03)
+
 ### 1.2.4 (2024-03-03)
 
 ### [1.2.3](https://github.com/kode3tech/backstage-proto/compare/v1.3.4...v1.2.3) (2024-03-01)
