@@ -1,10 +1,10 @@
-# @k3tech/backstage-plugin-scaffolder-backend-module-azure-devops
+# Plugin for scaffolder backend `azure-devops`
 
 The azure-devops module for [@backstage/plugin-scaffolder-backend](https://www.npmjs.com/package/@backstage/plugin-scaffolder-backend).
 
 This package make you able to execute multiples parameters with an single call.
 
-_This plugin was created through the Backstage CLI_
+> You can see all available examples [here](./exemples.md).
 
 ## Get Started
 
@@ -55,3 +55,5 @@ export default async function createPlugin(
   });
 
 ```
+
+_This plugin was created through the Backstage CLI_
