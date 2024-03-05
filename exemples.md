@@ -1,3 +1,6 @@
+
+## pipeline:create:azure
+
 ### Create multiples pipelines from same repo
 
 ```yaml
@@ -18,6 +21,9 @@ steps:
 
 ```
 
+
+## git:clone:azure
+
 ### Clone multiple repos form same Refs
 
 ```yaml
@@ -35,6 +41,9 @@ steps:
           targetPath: ./repo-2
 
 ```
+
+
+## git:commit:azure
 
 ### Commit to multiple repos form same Refs
 
