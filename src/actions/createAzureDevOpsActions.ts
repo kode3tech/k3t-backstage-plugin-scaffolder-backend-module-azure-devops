@@ -1,5 +1,4 @@
 
-import { UrlReader } from '@backstage/backend-common';
 import { CatalogApi } from '@backstage/catalog-client';
 import { Config } from '@backstage/config';
 import {
@@ -14,6 +13,7 @@ import {
   createPipelineCreateAzureAction,
 } from './piepline';
 import { Logger } from 'winston';
+import { UrlReaderService } from '@backstage/backend-plugin-api';
 
 /**
  * The options passed to {@link createBuiltinActions}
@@ -23,7 +23,7 @@ export interface CreateAzureDevOpsActionsOptions {
   /**
    * The {@link @backstage/backend-common#UrlReader} interface that will be used in the default actions.
    */
-  reader: UrlReader;
+  reader: UrlReaderService;
   /**
    * The {@link @backstage/integrations#ScmIntegrations} that will be used in the default actions.
    */

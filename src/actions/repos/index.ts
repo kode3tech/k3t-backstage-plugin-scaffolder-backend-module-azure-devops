@@ -15,3 +15,4 @@
  */
 
 export { createGitCloneFromAzureAction } from './git-clone-azure';
+export { createGitCommitFromAzureAction } from './git-commit-azure';

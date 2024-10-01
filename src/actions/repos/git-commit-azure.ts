@@ -89,7 +89,11 @@ export function createGitCommitFromAzureAction(options: {
       output: OutputSchema,
     },
     async handler(ctx) {
-      const {input: { params: values, commonParams: commonValues }, logger, output} = ctx
+      const {
+        input: { 
+          params: values, 
+          commonParams: commonValues 
+        }, logger, output} = ctx
       
       const results = [];
 

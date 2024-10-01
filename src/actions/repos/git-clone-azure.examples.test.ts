@@ -8,6 +8,7 @@ import yaml from 'yaml';
 import { createGitCloneFromAzureAction } from './git-clone-azure';
 import { examples } from './git-clone-azure.examples';
 import { GIT_CLONE_AZURE } from './ids';
+import { ActionContext } from '@backstage/plugin-scaffolder-node';
 
 
 describe(`${GIT_CLONE_AZURE} examples`, () => {
@@ -21,7 +22,10 @@ describe(`${GIT_CLONE_AZURE} examples`, () => {
     integrations: Symbol('Integrations') as unknown as ScmIntegrations
   });
 
-  const mockContext = {
+  const mockContext: ActionContext<any, any> = {
+    input: {},
+    checkpoint: jest.fn(),
+    getInitiatorCredentials: jest.fn(),
     workspacePath: os.tmpdir(),
     logger: getVoidLogger(),
     logStream: new PassThrough(),

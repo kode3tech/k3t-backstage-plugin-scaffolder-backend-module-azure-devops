@@ -22,6 +22,7 @@ import { PassThrough } from 'stream';
 import { Logger } from 'winston';
 import { PIPELINE_CREATE_AZURE } from './ids';
 import { createPipelineCreateAzureAction } from './pipeline-create-azure';
+import { ActionContext } from '@backstage/plugin-scaffolder-node';
 
 describe(`${PIPELINE_CREATE_AZURE}`, () => {
 
@@ -44,7 +45,10 @@ describe(`${PIPELINE_CREATE_AZURE}`, () => {
     config: Symbol('ConfigReader') as unknown as ConfigReader,
   });
 
-  const mockContext = {
+  const mockContext: ActionContext<any, any> = {
+    input: {},
+    checkpoint: jest.fn(),
+    getInitiatorCredentials: jest.fn(),
     workspacePath: os.tmpdir(),
     logger: getVoidLogger(),
     logStream: new PassThrough(),

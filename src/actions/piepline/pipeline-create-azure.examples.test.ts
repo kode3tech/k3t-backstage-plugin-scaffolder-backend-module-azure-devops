@@ -9,6 +9,7 @@ import yaml from 'yaml';
 import { PIPELINE_CREATE_AZURE } from './ids';
 import { createPipelineCreateAzureAction } from './pipeline-create-azure';
 import { examples } from './pipeline-create-azure.examples';
+import { ActionContext } from '@backstage/plugin-scaffolder-node';
 
 
 describe(`${PIPELINE_CREATE_AZURE} examples`, () => {
@@ -23,7 +24,10 @@ describe(`${PIPELINE_CREATE_AZURE} examples`, () => {
     integrations: Symbol('Integrations') as unknown as ScmIntegrations
   });
 
-  const mockContext = {
+  const mockContext: ActionContext<any, any> = {
+    input: {},
+    checkpoint: jest.fn(),
+    getInitiatorCredentials: jest.fn(),
     workspacePath: os.tmpdir(),
     logger: getVoidLogger(),
     logStream: new PassThrough(),

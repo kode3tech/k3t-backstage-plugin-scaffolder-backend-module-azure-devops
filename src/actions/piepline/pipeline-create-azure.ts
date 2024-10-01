@@ -1,20 +1,20 @@
 import { Config } from '@backstage/config';
 
+import { LoggerService } from '@backstage/backend-plugin-api';
+import { ScmIntegrations } from '@backstage/integration';
 import { createTemplateAction } from '@backstage/plugin-scaffolder-node';
 import { JsonObject } from '@backstage/types';
 import { Schema } from 'jsonschema';
-import { Logger } from 'winston';
-import { examples } from './pipeline-create-azure.examples';
-import { PIPELINE_CREATE_AZURE } from './ids';
-import { parseRepoUrl } from '../utils';
 import {
   AzurePipelineService,
   AzureRepoService,
   PipelineCreatePayload,
-  azureAxiosInstance,
-  getDefaultPipelinePayload as _getDefaultPipelinePayload
+  getDefaultPipelinePayload as _getDefaultPipelinePayload,
+  azureAxiosInstance
 } from '../../internals';
-import { ScmIntegrations } from '@backstage/integration';
+import { parseRepoUrl } from '../utils';
+import { PIPELINE_CREATE_AZURE } from './ids';
+import { examples } from './pipeline-create-azure.examples';
 
 export type FieldsType = {
   pipelinePath?: string;
@@ -98,7 +98,7 @@ const __getDefaultPipelinePayload =
 export function createPipelineCreateAzureAction(options: {
   config: Config;
   integrations: ScmIntegrations;
-  logger: Logger;
+  logger: LoggerService;
   getDefaultOrganization?: (repoUrl: string)=>Promise<string>;
   getDefaultProject?: (repoUrl: string)=>Promise<string>;
   getDefaultPipelinePayload?: (repoInfo: {id: string, name: string, project: {id: string}}) => Promise<PipelineCreatePayload>
@@ -121,8 +121,8 @@ export function createPipelineCreateAzureAction(options: {
     axiosHandler = azureAxiosInstance(AZURE_DEVOPS_TOKEN);
     repoService = new AzureRepoService(axiosHandler);
     pipeService = new AzurePipelineService(axiosHandler);
-  } catch (error) {
-    mainLogger.error(error);
+  } catch (error: any) {
+    if(error?.message) mainLogger.error(error?.message);
   }
 
   return createTemplateAction<InputType, OutputType>({

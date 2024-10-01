@@ -20,6 +20,7 @@ import os from 'os';
 import { PassThrough } from 'stream';
 import { createGitCommitFromAzureAction } from './git-commit-azure';
 import { GIT_CLONE_AZURE } from './ids';
+import { ActionContext } from '@backstage/plugin-scaffolder-node';
 
 describe(`${GIT_CLONE_AZURE}`, () => {
 
@@ -40,7 +41,10 @@ describe(`${GIT_CLONE_AZURE}`, () => {
     config: Symbol('ConfigReader') as unknown as ConfigReader,
   });
 
-  const mockContext = {
+  const mockContext: ActionContext<any, any> = {
+    input: {},
+    checkpoint: jest.fn(),
+    getInitiatorCredentials: jest.fn(),
     workspacePath: os.tmpdir(),
     logger: getVoidLogger(),
     logStream: new PassThrough(),
