@@ -9,6 +9,7 @@ import { JsonObject } from '@backstage/types';
 import { Schema } from 'jsonschema';
 import { Logger } from 'winston';
 import { examples } from './git-clone-azure.examples';
+import { GIT_CLONE_AZURE } from './ids';
 
 export type FieldsType = {
   repoUrl: string
@@ -85,7 +86,7 @@ export function createGitCloneFromAzureAction(options: {
   const AZURE_DEVOPS_TOKEN = config.getConfigArray('integrations.azure')[0].getString('token');
   
   return createTemplateAction<InputType, OutputType>({
-    id: 'git:clone:azure',
+    id: GIT_CLONE_AZURE,
     description: 'Clone and Checkout content from an Azure DevOps Git Repository',
     examples,
     schema: {
